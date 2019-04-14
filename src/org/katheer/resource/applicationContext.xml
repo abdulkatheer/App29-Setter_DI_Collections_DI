@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- List Example -->
+    <bean id="passbook1" class="org.katheer.bean.Passbook">
+        <property name="name" value="Abdul Katheer"/>
+        <property name="accNo" value="101"/>
+        <property name="accType" value="Savings"/>
+        <property name="transactions">
+            <list>
+                <ref bean="t1"/>
+                <ref bean="t2"/>
+                <ref bean="t1"/>
+                <ref bean="t3"/>
+                <ref bean="t2"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="t1" class="org.katheer.bean.Transaction">
+        <property name="date" value="12-10-2018"/>
+        <property name="type" value="Credit"/>
+        <property name="amount" value="150000"/>
+    </bean>
+    <bean id="t2" class="org.katheer.bean.Transaction">
+        <property name="date" value="01-01-2019"/>
+        <property name="type" value="Debit"/>
+        <property name="amount" value="10000"/>
+    </bean>
+    <bean id="t3" class="org.katheer.bean.Transaction">
+        <property name="date" value="13-04-2019"/>
+        <property name="type" value="Debit"/>
+        <property name="amount" value="20000"/>
+    </bean>
+
+    <!-- Set Example -->
+    <bean id="b1" class="org.katheer.bean.Book">
+        <property name="name" value="Java"/>
+        <property name="id" value="B101"/>
+        <property name="author" value="Abdul Katheer"/>
+    </bean>
+    <bean id="b2" class="org.katheer.bean.Book">
+        <property name="name" value="C"/>
+        <property name="id" value="B102"/>
+        <property name="author" value="Dhanalakshmi"/>
+    </bean>
+    <bean id="b3" class="org.katheer.bean.Book">
+        <property name="name" value="C++"/>
+        <property name="id" value="B103"/>
+        <property name="author" value="Vinoth"/>
+    </bean>
+
+    <bean id="library" class="org.katheer.bean.Library">
+        <property name="books">
+            <set>
+                <ref bean="b1"/>
+                <ref bean="b2"/>
+                <ref bean="b3"/>
+                <ref bean="b1"/>
+                <ref bean="b3"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- Map Example -->
+    <bean id="emp1" class="org.katheer.bean.Employee">
+        <property name="name" value="Abdul Katheer"/>
+        <property name="empid" value="E101"/>
+        <property name="dept" value="Dev"/>
+        <property name="salary" value="870000"/>
+    </bean>
+    <bean id="emp2" class="org.katheer.bean.Employee">
+        <property name="name" value="Dhanalakshmi"/>
+        <property name="empid" value="E102"/>
+        <property name="dept" value="Dev"/>
+        <property name="salary" value="780000"/>
+    </bean>
+    <bean id="emp3" class="org.katheer.bean.Employee">
+        <property name="name" value="Vinoth"/>
+        <property name="empid" value="E103"/>
+        <property name="dept" value="SAP"/>
+        <property name="salary" value="670000"/>
+    </bean>
+
+    <bean id="employeedb" class="org.katheer.bean.EmployeeDb">
+        <property name="employees">
+            <map>
+                <entry key="E101" value-ref="emp1"/>
+                <entry key="E102" value-ref="emp2"/>
+                <entry key="E103" value-ref="emp3"/>
+                <entry key="E101" value-ref="emp1"/>
+                <entry key="E103" value-ref="emp3"/>
+            </map>
+        </property>
+    </bean>
+</beans>
